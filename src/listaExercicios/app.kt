@@ -1,6 +1,8 @@
 package listaExercicios
 
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 /**
  * Created by josemauricio on 20/02/18.
@@ -9,7 +11,7 @@ import java.time.LocalDateTime
 fun main(args: Array<String>) {
 
 
-    trocarValores(1, 2)
+    formatTime(60)
 
 
 }
@@ -110,7 +112,37 @@ fun tempFahrenheit(celsius: Int){
     println("${celsius} celsius em Fahrenheit é ${fahrenheit}")
 }
 
+// Questao 6
+fun salarioAReceber(salarioBase: Double){
 
+    val gratificacao = (salarioBase * 5)/100
 
+    val imposto = (salarioBase * 7)/100
+
+    val salarioAReceber = (salarioBase - imposto) + gratificacao
+
+    println("Você irá ter R$ ${gratificacao} de gratificação e pagará R$ ${imposto} de imposto, assim seu salário base é " +
+            "R$ ${salarioAReceber}")
+}
+
+// Questao 7
+fun dimensoesDeUmCirculo(raio: Double){
+
+    val diametro = 2 * raio
+
+    val area = Math.PI * Math.pow(raio, 2.0)
+
+    val perimetro = 2 * Math.PI * raio
+
+    println("Diametro: $diametro")
+    println("Área: $area")
+    println("Perímetro: $perimetro")
+
+}
+
+// Questao 8
+fun formatTime(min: Long){
+    val temp = Date(min)
+}
 
 
