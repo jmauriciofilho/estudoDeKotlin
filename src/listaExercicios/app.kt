@@ -9,11 +9,7 @@ import java.util.*
  */
 
 fun main(args: Array<String>) {
-
-
-    formatTime(60)
-
-
+    formatTime(21600)
 }
 
 // Questão 1
@@ -141,8 +137,36 @@ fun dimensoesDeUmCirculo(raio: Double){
 }
 
 // Questao 8
-fun formatTime(min: Long){
-    val temp = Date(min)
+fun formatTime(seg: Long){
+    val horas = seg / 3600
+    val minutos = (seg - (horas * 3600)) / 60
+    val segundos = seg - (horas * 3600) - (minutos * 60)
+
+    println("$horas:$minutos:$segundos")
 }
 
+// Questao 9
+fun azulejosPiscina(altura: Double, comprimento: Double, largura: Double){
+    val fundo = comprimento * largura
+    val laterais = 2 * (comprimento * altura)
+    val laterais_raias = 2 * (largura * altura)
+    val areaTotal = fundo + laterais + laterais_raias
 
+    val numeroAzulejos = areaTotal / 100
+
+    println("A piscina necessita de $numeroAzulejos azulejos para preencher toda ela.")
+}
+
+// Questao 10
+fun resumoFinanceiroLoja(numeroVendedores: Int, salarioMin: Double, custoBiscicleta: Double, totalVendido: Double){
+    val custoTotalBiscicletasVendidas = totalVendido * custoBiscicleta
+    val folhaPagamento = salarioMin * numeroVendedores
+    val precoBiscicleta = custoBiscicleta + ((custoBiscicleta * 70)/100)
+    val faturamentoBruto = precoBiscicleta * totalVendido
+    val lucroLiquido = faturamentoBruto - custoTotalBiscicletasVendidas - folhaPagamento
+
+    println("Custo total por biscicleta: R$ $custoTotalBiscicletasVendidas")
+    println("Folha de pagamento: R$ $folhaPagamento")
+    println("Faturamento Bruto: R$ $faturamentoBruto")
+    println("Lucro Liquido: R$ $lucroLiquido")
+}
